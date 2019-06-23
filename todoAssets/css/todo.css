@@ -1,0 +1,257 @@
+:root {
+    /* Pink peach theme */
+    --pink-background-standard: #e0c8ce;
+    --pink-background-webkit: -webkit-linear-gradient(to right, #e0c8ce, #fffcdc);
+    --pink-background-linear: linear-gradient(to right, #e0c8ce, #fffcdc);
+    --pink-h1-background:  rgba(241, 156, 177, 0.84);
+    --pink-a: #a14c7ba3;
+    --pink-a-hover: #dc80b3a3;
+
+    /* Sky blue theme */
+    --blue-background-standard: #9cb8e2;  /* fallback for old browsers */
+    --blue-background-webkit: -webkit-linear-gradient(to right, #b6fbff, #9cb8e2);  /* Chrome 10-25, Safari 5.1-6 */
+    --blue-background-linear:linear-gradient(to right, #b6fbff, #9cb8e2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --blue-h1-background: rgb(134, 177, 210);
+    --blue-a: #3d417785;
+    --blue-a-hover: #2d64e685;
+
+    /* Avocado green theme */
+    --green-background-standard: #acefa2;  /* fallback for old browsers */
+    --green-background-webkit: -webkit-linear-gradient(to right, #7db060, #acefa2);  /* Chrome 10-25, Safari 5.1-6 */
+    --green-background-linear:linear-gradient(to right, #acefa2, #7db060); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --green-h1-background: #44bb7d;
+    --green-a: rgba(23, 103, 52, 0.61);
+    --green-a-hover: rgba(50, 130, 19, 0.52);
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background: var(--pink-background-standard);
+    /* fallback for old browsers */
+    background: var(--pink-background-webkit);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: var(--pink-background-linear);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+a {
+    color: var(--pink-a);
+}
+
+a:hover {
+    color:var(--pink-a-hover);
+}
+
+h1 {
+    background-color:var(--pink-h1-background);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: normal;
+    /* normal = 400 */
+    margin: 0;
+    padding: 10px 20px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    color: rgba(37, 37, 37, 0.774);
+    font-size: 1em;
+    background-color: white;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+}
+
+li:nth-child(2n) {
+    /* every other */
+    background-color: rgb(244, 244, 245);
+}
+
+input {
+    font-size: 1em;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: rgb(244, 244, 245);
+    width: 100%;
+    height: 3em;
+    padding: 13px 13px 13px 13px;
+    box-sizing: border-box;
+    /* adds correct size! */
+    border: 3px solid rgba(0, 0, 0, 0);
+    /* makes the input field borderless and pretty! */
+}
+
+input:focus {
+    background-color: white;
+    border: 3px solid rgb(204, 204, 208);
+    outline: none;
+}
+
+input, select, textarea{
+    color: #383149f5;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    rgba(201, 195, 201, 0.747);
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    rgba(201, 195, 201, 0.747);
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    rgba(201, 195, 201, 0.747);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:   rgba(201, 195, 201, 0.747);
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:    rgba(201, 195, 201, 0.747);
+}
+
+
+.removeButton {
+    /* before: span */
+    background-color: rgb(243, 136, 136);
+    color: white;
+    height: 40px;
+    width: 0;
+    margin-right: 20px;
+    text-align: center;
+    display: inline-block;
+    transition: 0.2s linear;
+    opacity: 0;
+}
+
+/* span appears when hover */
+.removeButton:hover {
+    width: 40px;
+    opacity: 1.0;
+    /* makes the span visible when hover */
+}
+
+.completed {
+    color: gray;
+    text-decoration: line-through;
+}
+
+#addItem i {
+    float: right;
+}
+
+#container {
+    background: rgb(212, 212, 240);
+    width: 35%;
+    margin: 12% auto;
+    /* centrerar */
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+
+/* https://www.barkins.com/2015/10/15/flexbox-responsive-dropdown-menu-no-javascript/ */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.466);
+    background: none;
+}
+
+.menu a {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.menu ul li {
+    flex: 1;
+    background: none;
+}
+
+.menu ul li ul {
+    /* display: none; */
+    visibility: hidden;
+    flex-direction: column;
+    font-size: 80%;
+    padding-top: 5px;
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+/*  shows when mouseover */
+#colorsMenu:hover ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu ul li ul li {
+    line-height: 1.5;
+    height: 20px;
+    margin-left: 0;
+}
+
+.menu .sub-menu>a:after {
+    content: " +";
+}
+
+#colorsMenu {
+    flex-basis: 100px;
+}
+
+#navBarSpace {
+    flex: 5;
+}
+
+
+/* mobile */
+@media (max-width: 767px) {
+    #container {
+        width: 80%;
+        margin: 23% auto;
+    }
+
+    .menu ul li {
+        flex: 1;
+        background: none;
+        margin-left: 5%;
+        margin-right: 2%;
+    }
+
+    .menu ul li ul li {
+        line-height: 1.5;
+        font-size: 1em;
+        height: 5%;
+        margin-left: 0;
+    }
+
+    .menu .sub-menu>a:after {
+        content: none;
+    }
+
+    li {
+        font-size: 0.8em;
+        background-color: white;
+        height: 30px;
+        width: 100%;
+        line-height: 30px;
+    }
+
+    input {
+        font-size: 0.8em;
+    }
+
+    .removeButton {
+        /* before: span */
+        height: 30px;
+    }
+
+}
